@@ -1,7 +1,5 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
+import { useState, useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -39,8 +37,8 @@ export const ContactSection = () => {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -58,7 +56,7 @@ export const ContactSection = () => {
     <section id="contact" className="py-24 bg-background">
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div
-          ref={ref}
+          ref={sectionRef}
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
