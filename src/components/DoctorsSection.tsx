@@ -3,6 +3,7 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Star, Video, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
 import doctor1 from "@/assets/doctor-1.jpg";
 import doctor2 from "@/assets/doctor-2.jpg";
 import doctor3 from "@/assets/doctor-3.jpg";
@@ -47,6 +48,18 @@ const DoctorCard = ({ doctor, index }: { doctor: typeof doctors[0]; index: numbe
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
+  const handleConsult = () => {
+    if (doctor.available) {
+      toast.success(`Starting video consultation with ${doctor.name}. Please wait while we connect you...`);
+    } else {
+      toast.error(`${doctor.name} is currently unavailable. Please try booking an appointment.`);
+    }
+  };
+
+  const handleBook = () => {
+    toast.success(`Appointment booking initiated with ${doctor.name}. You will receive a confirmation shortly.`);
+  };
+
   return (
     <motion.div
       ref={ref}
@@ -84,11 +97,11 @@ const DoctorCard = ({ doctor, index }: { doctor: typeof doctors[0]; index: numbe
           </div>
 
           <div className="flex gap-2">
-            <Button variant="default" size="sm" className="flex-1">
+            <Button variant="default" size="sm" className="flex-1" onClick={handleConsult}>
               <Video className="w-4 h-4" />
               Consult
             </Button>
-            <Button variant="outline" size="sm" className="flex-1">
+            <Button variant="outline" size="sm" className="flex-1" onClick={handleBook}>
               <Calendar className="w-4 h-4" />
               Book
             </Button>

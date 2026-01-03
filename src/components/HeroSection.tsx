@@ -1,9 +1,24 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Play, Shield, Wifi, Brain } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
 import doctorImage from "@/assets/doctor-hero.jpg";
 
 export const HeroSection = () => {
+  const scrollToSymptomChecker = () => {
+    const element = document.querySelector('.gradient-section:has([class*="Symptom"])') || 
+                    document.querySelector('section:nth-of-type(7)');
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    } else {
+      // Fallback: scroll to middle of page where symptom checker likely is
+      window.scrollTo({ top: document.body.scrollHeight * 0.6, behavior: "smooth" });
+    }
+  };
+
+  const playDemo = () => {
+    toast.info("Demo video coming soon! Our team is preparing an interactive walkthrough of the platform.");
+  };
   return (
     <section id="home" className="relative min-h-screen gradient-hero overflow-hidden">
       {/* Background Pattern */}
@@ -51,11 +66,11 @@ export const HeroSection = () => {
             </p>
 
             <div className="flex flex-wrap gap-4 mb-12">
-              <Button variant="hero" size="xl">
+              <Button variant="hero" size="xl" onClick={scrollToSymptomChecker}>
                 Start Free Diagnosis
                 <ArrowRight className="w-5 h-5" />
               </Button>
-              <Button variant="heroOutline" size="xl">
+              <Button variant="heroOutline" size="xl" onClick={playDemo}>
                 <Play className="w-5 h-5" />
                 Watch Demo
               </Button>

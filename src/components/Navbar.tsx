@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
 
 const navLinks = [
   { name: "Home", href: "#home" },
@@ -15,6 +16,15 @@ const navLinks = [
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const handleGetStarted = () => {
+    toast.success("Welcome to RuralCare AI! Sign up feature coming soon. For now, try our Symptom Checker below.");
+    const symptomSection = document.querySelector('section:has(.gradient-section)') || 
+                           document.querySelector('[class*="SymptomChecker"]');
+    if (symptomSection) {
+      symptomSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -64,7 +74,7 @@ export const Navbar = () => {
 
           {/* CTA Button */}
           <div className="hidden lg:flex items-center gap-4">
-            <Button variant={isScrolled ? "default" : "hero"} size="lg">
+            <Button variant={isScrolled ? "default" : "hero"} size="lg" onClick={handleGetStarted}>
               Get Started
             </Button>
           </div>
@@ -101,7 +111,7 @@ export const Navbar = () => {
                   {link.name}
                 </a>
               ))}
-              <Button variant="default" size="lg" className="w-full mt-4">
+              <Button variant="default" size="lg" className="w-full mt-4" onClick={handleGetStarted}>
                 Get Started
               </Button>
             </div>
