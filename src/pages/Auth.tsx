@@ -199,6 +199,7 @@ const Auth = () => {
           {/* Toggle Tabs */}
           <div className="flex bg-muted rounded-lg p-1 mb-8">
             <button
+              type="button"
               onClick={() => setIsLogin(true)}
               className={`flex-1 py-2.5 text-sm font-medium rounded-md transition-all ${
                 isLogin
@@ -209,6 +210,7 @@ const Auth = () => {
               Login
             </button>
             <button
+              type="button"
               onClick={() => setIsLogin(false)}
               className={`flex-1 py-2.5 text-sm font-medium rounded-md transition-all ${
                 !isLogin
