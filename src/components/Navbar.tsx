@@ -1,8 +1,15 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Heart } from "lucide-react";
+import { Menu, X, Heart, LogOut, User } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { toast } from "sonner";
+import { useAuth } from "@/contexts/AuthContext";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const navLinks = [
   { name: "Home", href: "#home" },
@@ -16,14 +23,16 @@ const navLinks = [
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const { user, signOut } = useAuth();
 
   const handleGetStarted = () => {
-    toast.success("Welcome to MediSarthi! Sign up feature coming soon. For now, try our Symptom Checker below.");
-    const symptomSection = document.querySelector('section:has(.gradient-section)') || 
-                           document.querySelector('[class*="SymptomChecker"]');
-    if (symptomSection) {
-      symptomSection.scrollIntoView({ behavior: "smooth" });
-    }
+    navigate('/auth');
+  };
+
+  const handleSignOut = async () => {
+    await signOut();
+    navigate('/');
   };
 
   useEffect(() => {
@@ -72,11 +81,28 @@ export const Navbar = () => {
             ))}
           </div>
 
-          {/* CTA Button */}
+          {/* CTA Button / User Menu */}
           <div className="hidden lg:flex items-center gap-4">
-            <Button variant={isScrolled ? "default" : "hero"} size="lg" onClick={handleGetStarted}>
-              Get Started
-            </Button>
+            {user ? (
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant={isScrolled ? "outline" : "hero"} size="lg" className="gap-2">
+                    <User className="w-4 h-4" />
+                    {user.user_metadata?.full_name || user.email?.split('@')[0]}
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-48">
+                  <DropdownMenuItem onClick={handleSignOut} className="gap-2 cursor-pointer">
+                    <LogOut className="w-4 h-4" />
+                    Sign Out
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            ) : (
+              <Button variant={isScrolled ? "default" : "hero"} size="lg" onClick={handleGetStarted}>
+                Get Started
+              </Button>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -111,9 +137,26 @@ export const Navbar = () => {
                   {link.name}
                 </a>
               ))}
-              <Button variant="default" size="lg" className="w-full mt-4" onClick={handleGetStarted}>
-                Get Started
-              </Button>
+              {user ? (
+                <div className="pt-4 border-t border-border space-y-2">
+                  <p className="text-sm text-muted-foreground">
+                    Signed in as {user.email}
+                  </p>
+                  <Button 
+                    variant="outline" 
+                    size="lg" 
+                    className="w-full gap-2" 
+                    onClick={handleSignOut}
+                  >
+                    <LogOut className="w-4 h-4" />
+                    Sign Out
+                  </Button>
+                </div>
+              ) : (
+                <Button variant="default" size="lg" className="w-full mt-4" onClick={handleGetStarted}>
+                  Get Started
+                </Button>
+              )}
             </div>
           </motion.div>
         )}
