@@ -48,8 +48,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const signUp = async (email: string, password: string, fullName: string) => {
     const redirectUrl = `${window.location.origin}/`;
+    console.log('AuthContext: Attempting signup for', email);
     
-    const { error } = await supabase.auth.signUp({
+    const { data, error } = await supabase.auth.signUp({
       email,
       password,
       options: {
@@ -59,6 +60,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         }
       }
     });
+    
+    console.log('AuthContext: Signup response', { data, error });
     return { error: error as Error | null };
   };
 

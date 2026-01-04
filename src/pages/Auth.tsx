@@ -83,26 +83,40 @@ const Auth = () => {
   };
 
   const handleSignup = async (data: SignupFormData) => {
+    console.log('Signup form submitted with data:', { email: data.email, fullName: data.fullName });
     setIsSubmitting(true);
-    const { error } = await signUp(data.email, data.password, data.fullName);
-    setIsSubmitting(false);
+    
+    try {
+      const { error } = await signUp(data.email, data.password, data.fullName);
+      setIsSubmitting(false);
 
-    if (error) {
-      let errorMessage = error.message;
-      if (error.message.includes('User already registered')) {
-        errorMessage = 'An account with this email already exists. Please login instead.';
+      if (error) {
+        console.error('Signup error:', error);
+        let errorMessage = error.message;
+        if (error.message.includes('User already registered')) {
+          errorMessage = 'An account with this email already exists. Please login instead.';
+        }
+        toast({
+          title: 'Sign Up Failed',
+          description: errorMessage,
+          variant: 'destructive',
+        });
+      } else {
+        console.log('Signup successful');
+        toast({
+          title: 'Account Created!',
+          description: 'Welcome to MediSarthi. You are now logged in.',
+        });
+        navigate('/');
       }
+    } catch (err) {
+      console.error('Signup exception:', err);
+      setIsSubmitting(false);
       toast({
         title: 'Sign Up Failed',
-        description: errorMessage,
+        description: 'An unexpected error occurred. Please try again.',
         variant: 'destructive',
       });
-    } else {
-      toast({
-        title: 'Account Created!',
-        description: 'Welcome to MediSarthi. You are now logged in.',
-      });
-      navigate('/');
     }
   };
 
