@@ -51,7 +51,7 @@ export const Footer = () => {
                 <Heart className="w-5 h-5 text-accent-foreground" />
               </div>
               <span className="font-display font-bold text-xl">
-                RuralCare<span className="text-accent">AI</span>
+                Medi<span className="text-accent">Sarthi</span>
               </span>
             </a>
             <p className="text-primary-foreground/70 mb-6 max-w-sm">
@@ -141,7 +141,7 @@ export const Footer = () => {
         {/* Bottom */}
         <div className="border-t border-primary-foreground/10 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-primary-foreground/60 text-sm">
-            © 2026 RuralCare AI. All rights reserved. Made with ❤️ for Rural India.
+            © 2026 MediSarthi. All rights reserved. Made with ❤️ for Rural India.
           </p>
           <button
             onClick={scrollToTop}
