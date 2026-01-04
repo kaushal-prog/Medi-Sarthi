@@ -18,7 +18,7 @@ export const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleGetStarted = () => {
-    toast.success("Welcome to RuralCare AI! Sign up feature coming soon. For now, try our Symptom Checker below.");
+    toast.success("Welcome to MediSarthi! Sign up feature coming soon. For now, try our Symptom Checker below.");
     const symptomSection = document.querySelector('section:has(.gradient-section)') || 
                            document.querySelector('[class*="SymptomChecker"]');
     if (symptomSection) {
@@ -53,7 +53,7 @@ export const Navbar = () => {
               <Heart className="w-5 h-5 text-primary-foreground" />
             </div>
             <span className={`font-display font-bold text-xl ${isScrolled ? "text-foreground" : "text-primary-foreground"}`}>
-              RuralCare<span className="text-accent">AI</span>
+              Medi<span className="text-accent">Sarthi</span>
             </span>
           </a>
 
