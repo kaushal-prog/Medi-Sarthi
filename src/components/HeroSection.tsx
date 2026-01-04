@@ -1,18 +1,27 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Play, Shield, Wifi, Brain } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+import { useAuth } from "@/contexts/AuthContext";
 import doctorImage from "@/assets/doctor-hero.jpg";
 
 export const HeroSection = () => {
-  const scrollToSymptomChecker = () => {
-    const element = document.querySelector('.gradient-section:has([class*="Symptom"])') || 
-                    document.querySelector('section:nth-of-type(7)');
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+  const navigate = useNavigate();
+  const { user } = useAuth();
+
+  const handleGetStarted = () => {
+    if (user) {
+      // Already logged in, scroll to symptom checker
+      const element = document.querySelector('.gradient-section:has([class*="Symptom"])') || 
+                      document.querySelector('section:nth-of-type(7)');
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      } else {
+        window.scrollTo({ top: document.body.scrollHeight * 0.6, behavior: "smooth" });
+      }
     } else {
-      // Fallback: scroll to middle of page where symptom checker likely is
-      window.scrollTo({ top: document.body.scrollHeight * 0.6, behavior: "smooth" });
+      navigate('/auth');
     }
   };
 
@@ -66,7 +75,7 @@ export const HeroSection = () => {
             </p>
 
             <div className="flex flex-wrap gap-4 mb-12">
-              <Button variant="hero" size="xl" onClick={scrollToSymptomChecker}>
+              <Button variant="hero" size="xl" onClick={handleGetStarted}>
                 Start Free Diagnosis
                 <ArrowRight className="w-5 h-5" />
               </Button>
