@@ -224,7 +224,16 @@ const Auth = () => {
 
           {isLogin ? (
             <Form {...loginForm}>
-              <form onSubmit={loginForm.handleSubmit(handleLogin)} className="space-y-5">
+              <form
+                onSubmit={loginForm.handleSubmit(handleLogin, () => {
+                  toast({
+                    title: 'Fix the highlighted fields',
+                    description: 'Please check your email and password and try again.',
+                    variant: 'destructive',
+                  });
+                })}
+                className="space-y-5"
+              >
                 <FormField
                   control={loginForm.control}
                   name="email"
@@ -237,6 +246,7 @@ const Auth = () => {
                           <Input
                             placeholder="your@email.com"
                             className="pl-10"
+                            autoComplete="email"
                             {...field}
                           />
                         </div>
@@ -259,6 +269,7 @@ const Auth = () => {
                             type="password"
                             placeholder="••••••••"
                             className="pl-10"
+                            autoComplete="current-password"
                             {...field}
                           />
                         </div>
@@ -287,7 +298,16 @@ const Auth = () => {
             </Form>
           ) : (
             <Form {...signupForm}>
-              <form onSubmit={signupForm.handleSubmit(handleSignup)} className="space-y-5">
+              <form
+                onSubmit={signupForm.handleSubmit(handleSignup, () => {
+                  toast({
+                    title: 'Fix the highlighted fields',
+                    description: 'Please review the form errors and try again.',
+                    variant: 'destructive',
+                  });
+                })}
+                className="space-y-5"
+              >
                 <FormField
                   control={signupForm.control}
                   name="fullName"
@@ -300,6 +320,7 @@ const Auth = () => {
                           <Input
                             placeholder="John Doe"
                             className="pl-10"
+                            autoComplete="name"
                             {...field}
                           />
                         </div>
