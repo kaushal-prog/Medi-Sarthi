@@ -189,19 +189,7 @@ Advanced AI models for prediction
 
 Website Prototype: (Add Netlify link here)
 
-Project Demo Video: (Add YouTube / Drive link)
-
-
-
----
-
-👨‍💻 Team Members
-
-Amar
-
-Krushna Dhok
-
-Kaushal Kakade
+Project Demo Video: (Add YouTube / Drive 
 
 
 
