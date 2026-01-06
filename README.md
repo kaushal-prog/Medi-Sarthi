@@ -1,73 +1,219 @@
-# Welcome to your Lovable project
 
-## Project info
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+🩺 MediSarthi – AI‑Powered Rural Healthcare Platform
 
-## How can I edit this code?
+MediSarthi is an AI‑based healthcare platform designed to improve healthcare accessibility in rural India.
+It leverages the evolution of Artificial Intelligence—from offline rule‑based systems to machine learning and telemedicine—to provide early diagnosis, remote consultation, and decision support in low‑resource settings.
 
-There are several ways of editing your application.
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+🚀 Problem Statement
 
-Changes made via Lovable will be committed automatically to this repo.
+Rural areas in India face major healthcare challenges such as:
 
-**Use your preferred IDE**
+Shortage of qualified doctors
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Poor medical infrastructure
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Limited or no internet connectivity
 
-Follow these steps:
+Delayed disease diagnosis
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+As a result, treatable diseases often become severe.
+Existing AI healthcare solutions are mostly urban‑focused, expensive, and internet‑dependent.
 
-# Step 3: Install the necessary dependencies.
-npm i
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+---
 
-**Edit a file directly in GitHub**
+💡 Proposed Solution
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+MediSarthi provides a scalable, affordable, and rural‑friendly healthcare solution using AI in a stage‑wise approach:
 
-**Use GitHub Codespaces**
+1. Offline Rule‑Based Symptom Analysis
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
 
-## What technologies are used for this project?
+2. Machine Learning–Based Disease Prediction
 
-This project is built with:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+3. AI‑Driven Telemedicine & Analytics
 
-## How can I deploy this project?
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
 
-## Can I connect a custom domain to my Lovable project?
 
-Yes, you can!
+---
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+🧠 AI Evolution Used in the Project
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+🔹 Stage 1: Rule‑Based AI
+
+Works completely offline
+
+Provides basic symptom analysis
+
+Useful for villages with poor internet
+
+
+🔹 Stage 2: Machine Learning AI
+
+Uses patient data for disease prediction
+
+Improves accuracy over manual diagnosis
+
+Supports early detection
+
+
+🔹 Stage 3: Advanced AI
+
+Telemedicine consultation
+
+Voice assistance & multilingual support
+
+Health analytics and outbreak prediction
+
+
+
+---
+
+👥 User Modules
+
+👤 Patient Module
+
+Offline symptom checker
+
+AI health predictions
+
+Health tracking & reminders
+
+
+👩‍⚕️ Health Worker (ASHA) Module
+
+Patient registration
+
+Vitals capture
+
+AI‑assisted triage
+
+
+👨‍⚕️ Doctor Module
+
+Remote consultation
+
+AI‑generated reports
+
+Digital prescriptions
+
+
+🛠 Admin Dashboard
+
+Healthcare analytics
+
+Outbreak prediction
+
+Resource planning
+
+
+
+---
+
+🛠️ Technologies Used
+
+Frontend: HTML, CSS, JavaScript / React
+
+Backend: Python
+
+AI & ML:
+
+Rule‑Based Logic
+
+Machine Learning (Logistic Regression, Random Forest)
+
+
+Libraries & Tools:
+
+Scikit‑learn
+
+Pandas
+
+NumPy
+
+
+Deployment: Netlify
+
+
+
+---
+
+🌍 Impact & Benefits
+
+✅ Social Benefits
+
+Improved healthcare access in rural areas
+
+Early disease detection
+
+Reduced rural‑urban healthcare gap
+
+
+💰 Economic Benefits
+
+Lower travel and treatment costs
+
+Affordable healthcare solution
+
+
+🌱 Environmental Benefits
+
+Reduced travel → lower carbon emissions
+
+
+
+---
+
+🔮 Future Scope
+
+Multilingual & voice‑based interaction
+
+Integration with wearable health devices
+
+Government health record integration
+
+Advanced AI models for prediction
+
+
+
+---
+
+🎥 Demo & Presentation
+
+Website Prototype: (Add Netlify link here)
+
+Project Demo Video: (Add YouTube / Drive link)
+
+
+
+---
+
+👨‍💻 Team Members
+
+Amar
+
+Krushna Dhok
+
+Kaushal Kakade
+
+
+
+---
+
+📚 References
+
+World Health Organization (WHO) – Rural Healthcare Reports
+
+Government of India – National Health Mission
+
+AI in Healthcare Research Papers
+
+Scikit‑learn Documentation
+
