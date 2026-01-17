@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { useAuth } from "@/contexts/AuthContext";
-import doctorImage from "@/assets/doctor-hero.jpg";
+import doctorImage from "@/assets/doctor-hero-new.jpg";
 
 export const HeroSection = () => {
   const navigate = useNavigate();
