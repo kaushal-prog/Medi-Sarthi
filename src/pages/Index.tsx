@@ -5,6 +5,7 @@ import { AIEvolutionSection } from "@/components/AIEvolutionSection";
 import { DepartmentsSection } from "@/components/DepartmentsSection";
 import { AboutSection } from "@/components/AboutSection";
 import { DoctorsSection } from "@/components/DoctorsSection";
+import { AIDoctor } from "@/components/AIDoctor";
 import { SymptomChecker } from "@/components/SymptomChecker";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { ContactSection } from "@/components/ContactSection";
@@ -20,6 +21,7 @@ const Index = () => {
       <DepartmentsSection />
       <AboutSection />
       <DoctorsSection />
+      <AIDoctor />
       <SymptomChecker />
       <TestimonialsSection />
       <ContactSection />
