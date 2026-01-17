@@ -12,7 +12,6 @@ export const HeroSection = () => {
 
   const handleGetStarted = () => {
     if (user) {
-      // Already logged in, scroll to symptom checker
       const element = document.querySelector('.gradient-section:has([class*="Symptom"])') || 
                       document.querySelector('section:nth-of-type(7)');
       if (element) {
@@ -28,6 +27,26 @@ export const HeroSection = () => {
   const playDemo = () => {
     toast.info("Demo video coming soon! Our team is preparing an interactive walkthrough of the platform.");
   };
+
+  const handleOfflineMode = () => {
+    toast.success("Offline Mode Active", {
+      description: "Our AI diagnosis works without internet using rule-based symptom analysis. Perfect for remote areas with limited connectivity.",
+      duration: 5000,
+    });
+  };
+
+  const handleTelemedicine = () => {
+    const doctorsSection = document.getElementById('doctors');
+    if (doctorsSection) {
+      doctorsSection.scrollIntoView({ behavior: "smooth" });
+    } else {
+      toast.info("Telemedicine", {
+        description: "Connect with qualified doctors through secure video consultations. Available 24/7 for rural healthcare needs.",
+        duration: 5000,
+      });
+    }
+  };
+
   return (
     <section id="home" className="relative min-h-screen gradient-hero overflow-hidden">
       {/* Background Pattern */}
@@ -124,7 +143,8 @@ export const HeroSection = () => {
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 1 }}
-                className="absolute left-0 lg:-left-4 top-1/4 bg-background rounded-2xl p-4 shadow-elevated z-10"
+                onClick={handleOfflineMode}
+                className="absolute left-0 lg:-left-4 top-1/4 bg-background rounded-2xl p-4 shadow-elevated z-10 cursor-pointer hover:scale-105 transition-transform duration-300"
               >
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
@@ -141,7 +161,8 @@ export const HeroSection = () => {
                 initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 1.2 }}
-                className="absolute right-0 lg:-right-4 bottom-1/4 bg-background rounded-2xl p-4 shadow-elevated z-10"
+                onClick={handleTelemedicine}
+                className="absolute right-0 lg:-right-4 bottom-1/4 bg-background rounded-2xl p-4 shadow-elevated z-10 cursor-pointer hover:scale-105 transition-transform duration-300"
               >
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 rounded-xl gradient-accent flex items-center justify-center">
